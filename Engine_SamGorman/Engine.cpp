@@ -1,16 +1,9 @@
-//Main.CPP
-//Main Class
-
-#include <SDL.h>
-#include <iostream>
 #include "Engine.h"
+#include <iostream>
 
-int main(int argc, char *args[])
+
+Engine::Engine(void)
 {
-	Engine::getinstance().start;
-	//Engine engine;
-	//engine.start;
-
 	//Initialize SDL
 	if(SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -38,14 +31,44 @@ int main(int argc, char *args[])
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	
-	//Add 2 second delay
-	SDL_Delay(2000);
+}
+
+
+Engine::~Engine(void)
+{
 	//Destroy window
 	SDL_DestroyWindow(window);
 	//Shutdown SDL
 	SDL_Quit();
-
-	return 0;
 }
+
+Engine& Engine::getinstance()
+{
+	static Engine instance; //Garunteed to be created and destroyed properly
+	return instance;
+}
+
+void Engine::start()
+{
+	while(!quit)
+	{
+		update();
+	}
+}
+
+void Engine::update()
+{
+	//Check for SDL events(mouse, keyboard, etc)
+	//SDL handles all of the events
+	SDL_Event e;
+
+	while(SDL_PollEvent(&e) != NULL)
+	{
+		if(e.type == SDL_QUIT)
+		{
+			quit = true;
+		}
+	}
+}
+
 
