@@ -77,9 +77,12 @@
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RenderingSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="ISystem.h" />
+    <ClInclude Include="RenderingSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

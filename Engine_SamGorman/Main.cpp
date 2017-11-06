@@ -7,10 +7,10 @@
 
 int main(int argc, char *args[])
 {
-	Engine::getinstance().start;
-	//Engine engine;
-	//engine.start;
+	Engine::getinstance().start();
+	return EXIT_SUCCESS;
 
+	/*
 	//Initialize SDL
 	if(SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -47,5 +47,6 @@ int main(int argc, char *args[])
 	SDL_Quit();
 
 	return 0;
+	*/
 }
 

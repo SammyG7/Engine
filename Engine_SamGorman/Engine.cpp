@@ -31,8 +31,10 @@ Engine::Engine(void)
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-}
 
+	//Create Systems
+	renderingSystem = new RenderingSystem();
+}
 
 Engine::~Engine(void)
 {
@@ -40,6 +42,9 @@ Engine::~Engine(void)
 	SDL_DestroyWindow(window);
 	//Shutdown SDL
 	SDL_Quit();
+
+	//Destroy Systems
+	delete renderingSystem;
 }
 
 Engine& Engine::getinstance()
@@ -68,6 +73,9 @@ void Engine::update()
 		{
 			quit = true;
 		}
+
+		//Update Systems
+		renderingSystem->update();
 	}
 }
 

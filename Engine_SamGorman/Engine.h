@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include "RenderingSystem.h"
 
 class Engine
 {
@@ -12,6 +13,9 @@ class Engine
 		Engine(Engine& copy); //Hide copy constructor
 		Engine(Engine&& other); //Hide move constrcutor
 		Engine& operator = (Engine& copy); //Hide assignment operator
+
+		//Systems
+		RenderingSystem*renderingSystem;
 
 		SDL_Window*window;
 		bool quit;
