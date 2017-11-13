@@ -33,7 +33,7 @@ Engine::Engine(void)
 	}
 
 	//Create Systems
-	renderingSystem = new RenderingSystem();
+	renderingSystem = new RenderingSystem(window);
 }
 
 Engine::~Engine(void)

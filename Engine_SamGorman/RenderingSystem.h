@@ -1,5 +1,8 @@
 #pragma once
 
+#include <SDL.h>
+#include <iostream>
+
 //Parent class
 #include "ISystem.h"
 
@@ -7,9 +10,12 @@
 class RenderingSystem : ISystem
 {
 	public:
-		RenderingSystem(void);
+		RenderingSystem(SDL_Window* window);
 		~RenderingSystem(void);
 
 		void update();
+
+	private:
+		SDL_Renderer* renderer;
 };
 
