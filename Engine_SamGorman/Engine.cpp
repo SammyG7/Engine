@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include <iostream>
-
+#include "Position.h"
+#include "Sprite.h"
 
 Engine::Engine(void)
 {
@@ -55,6 +56,10 @@ Engine& Engine::getinstance()
 
 void Engine::start()
 {
+	std::cout<<"Position Mask"<<Position::getMask()<<std::endl;
+	std::cout<<"Sprite Mask"<<Sprite::getMask()<<std::endl;
+	std::cout<<"Position Mask"<<Position::getMask()<<std::endl;
+	std::cout<<"Sprite Mask"<<Sprite::getMask()<<std::endl;
 	while(!quit)
 	{
 		update();
