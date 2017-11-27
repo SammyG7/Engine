@@ -1,7 +1,7 @@
 #include "Entity.h"
 
 
-Entity::Entity(void)
+Entity::Entity():_componentMask(0)
 {
 
 }
@@ -10,4 +10,9 @@ Entity::Entity(void)
 Entity::~Entity(void)
 {
 
+}
+
+uint32_t Entity::getComponentMask()
+{
+	return _componentMask;
 }

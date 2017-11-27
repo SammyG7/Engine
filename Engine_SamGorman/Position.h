@@ -2,7 +2,7 @@
 
 #include "Component.h"
 
-class Position: public Component
+class Position: public Component<Position>
 {
 
 };

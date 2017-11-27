@@ -2,7 +2,7 @@
 
 #include "Component.h"
 
-class Sprite: public Component
+class Sprite: public Component<Sprite>
 {
 
 };

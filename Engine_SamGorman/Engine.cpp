@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Position.h"
 #include "Sprite.h"
+#include "Entity.h"
 
 Engine::Engine(void)
 {
@@ -56,10 +57,13 @@ Engine& Engine::getinstance()
 
 void Engine::start()
 {
-	std::cout<<"Position Mask"<<Position::getMask()<<std::endl;
-	std::cout<<"Sprite Mask"<<Sprite::getMask()<<std::endl;
-	std::cout<<"Position Mask"<<Position::getMask()<<std::endl;
-	std::cout<<"Sprite Mask"<<Sprite::getMask()<<std::endl;
+	Entity e;
+	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
+	e.addComponent<Position>();
+	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
+	e.addComponent<Sprite>();
+	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
+
 	while(!quit)
 	{
 		update();
