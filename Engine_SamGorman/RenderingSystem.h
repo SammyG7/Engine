@@ -3,11 +3,12 @@
 #include <SDL.h>
 #include <iostream>
 
+
 //Parent class
-#include "ISystem.h"
+#include "System.h"
 
 //Rendering interface
-class RenderingSystem : ISystem
+class RenderingSystem : System<RenderingSystem>
 {
 	public:
 		RenderingSystem(SDL_Window* window);

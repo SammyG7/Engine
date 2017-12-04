@@ -1,4 +1,7 @@
 #include "RenderingSystem.h"
+#include "Sprite.h"
+#include "Position.h"
+#include "Entity.h"
 
 RenderingSystem::RenderingSystem(SDL_Window* window)
 {
@@ -11,6 +14,8 @@ RenderingSystem::RenderingSystem(SDL_Window* window)
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
+
+	componentMask = Position::getMask() | Sprite::getMask();
 }
 
 RenderingSystem::~RenderingSystem(void)
@@ -24,6 +29,15 @@ void RenderingSystem::update()
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
 	//Clear screen
 	SDL_RenderClear(renderer);
+	//Loop through all entities
+	for(Entity& entity : Entity::getEntityList())
+	{
+		//Check if entity has required components
+		if(componentMask == entity.getComponentMask() & componentMask )
+		{
+			
+		}
+	}
 	//Update screen
 	SDL_RenderPresent(renderer);
 }

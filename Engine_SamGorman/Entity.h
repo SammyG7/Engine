@@ -2,6 +2,7 @@
 
 #include <SDL.h>
 #include <type_traits>
+#include <vector>
 
 class Entity
 {
@@ -17,7 +18,14 @@ class Entity
 			_componentMask = _componentMask | C::getMask();
 		}
 
-		uint32_t getComponentMask();
+		template <typename C>
+		void removeComponent()
+		{
+			/*
+			static_assert(std::is_base_of<Component<C>, C>::value, "ERROR: Can only remove component types to entities");
+			_componentMask = _componentMask ^ C::getMask();
+			*/
+		}
 
 		/*
 		template <typename C>
@@ -26,6 +34,12 @@ class Entity
 		}
 		*/
 
+		//Static Methods
+		uint32_t getComponentMask();
+		static std::vector<Entity>& getEntityList();
+		static Entity& create();
+
 	private:
 		uint32_t _componentMask;
+		static std::vector<Entity> _entityList;
 };

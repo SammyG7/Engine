@@ -64,6 +64,9 @@ void Engine::start()
 	e.addComponent<Sprite>();
 	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
 
+	e.removeComponent<Sprite>();
+	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
+
 	while(!quit)
 	{
 		update();
