@@ -33,9 +33,10 @@ void RenderingSystem::update()
 	for(Entity& entity : Entity::getEntityList())
 	{
 		//Check if entity has required components
-		if(componentMask == entity.getComponentMask() & componentMask )
+		if(componentMask == entity.getComponentMask() & componentMask)
 		{
-			
+			Position& position = entity.getComponent<Position>();
+			Sprite& sprite = entity.getComponent<Sprite>();
 		}
 	}
 	//Update screen

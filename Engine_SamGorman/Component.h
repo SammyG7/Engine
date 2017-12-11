@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include <unordered_map>
 
 class BaseComponent
 {
@@ -18,6 +19,18 @@ class Component : BaseComponent
 			static uint32_t _mask = 1 << _componentTypeCount++;
 			return _mask;
 		}
+
+	private:
+		friend class Entity;
+		static std::unordered_map<uint32_t, Derived> componentMap;	
+		static Derived& addComponentWithEntityID(uint32_t entityID)
+		{
+			Derived newComponent;
+			componentMap[enitityID] = newComponent;
+			return componentMap[entityID];
+		}
 };
 
-
+//Template Statistics
+template <typename Derived>
+std::unordered_map<uint32_t, Derived> component<Derived>::componentMask;
