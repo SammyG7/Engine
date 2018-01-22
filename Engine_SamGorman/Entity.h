@@ -7,9 +7,6 @@
 class Entity
 {
 	public:
-		Entity(void);
-		~Entity(void);
-
 		template <typename C>
 		C& addComponent()
 		{
@@ -24,7 +21,7 @@ class Entity
 		C& getComponent()
 		{
 			static_assert(std::is_base_of<Component<C>, C>::value, "ERROR: Can only get component types from entities!");
-			return C::addComponentWithEntityID(_ID);
+			return C::getComponentWithEntityID(_ID);
 		}
 
 		template <typename C>

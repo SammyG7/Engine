@@ -9,11 +9,6 @@ Entity::Entity(size_t ID):_ID(ID), _componentMask(0)
 }
 
 
-Entity::~Entity(void)
-{
-
-}
-
 uint32_t Entity::getComponentMask()
 {
 	return _componentMask;
@@ -33,5 +28,5 @@ Entity& Entity::create()
 {
 	Entity e(_entityList.size());
 	_entityList.push_back(e);
-	return _entityList.back;
+	return _entityList.back();
 }

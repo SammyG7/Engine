@@ -1,8 +1,10 @@
 #pragma once
 
 #include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
-
+#include <unordered_map>
+#include <string>
 
 //Parent class
 #include "System.h"
@@ -18,5 +20,6 @@ class RenderingSystem : System<RenderingSystem>
 
 	private:
 		SDL_Renderer* renderer;
-};
-
+		std::unordered_map<std::string, SDL_Texture*> _textureMap;
+		SDL_Texture* _loadTexture(std::string texture);	
+}; 

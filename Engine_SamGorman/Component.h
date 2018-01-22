@@ -2,6 +2,7 @@
 
 #include <SDL.h>
 #include <unordered_map>
+#include <string>
 
 class BaseComponent
 {
@@ -29,8 +30,13 @@ class Component : BaseComponent
 			componentMap[enitityID] = newComponent;
 			return componentMap[entityID];
 		}
+
+		static Derived& getComponentWithEntityID(uint32_t entityID)
+		{
+			return componentMap[entityID];
+		}
 };
 
 //Template Statistics
 template <typename Derived>
-std::unordered_map<uint32_t, Derived> component<Derived>::componentMask;
+std::unordered_map<uint32_t, Derived> Component<Derived>::componentMap;

@@ -4,10 +4,10 @@
 #include "Sprite.h"
 #include "Entity.h"
 
-Engine::Engine(void)
+Engine::Engine(void):quit(false)
 {
 	//Initialize SDL
-	if(SDL_Init(SDL_INIT_VIDEO) != 0)
+	if(SDL_Init(SDL_INIT_VIDEO) != NULL)
 	{
 		//Display error messages
 		std::cerr<<"Unable to initialize SDL:" << std::endl;
@@ -19,8 +19,6 @@ Engine::Engine(void)
 		//Exit program and tell OS it failed
 		exit(EXIT_FAILURE);
 	}
-
-	
 
 	//Create a window
 	SDL_Window*window = SDL_CreateWindow("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, NULL);
@@ -57,7 +55,7 @@ Engine& Engine::getinstance()
 
 void Engine::start()
 {
-	Entity e;
+	/*Entity e;
 	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
 	e.addComponent<Position>();
 	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
@@ -66,7 +64,13 @@ void Engine::start()
 
 	e.removeComponent<Sprite>();
 	std::cout<<"Entity e's component mask:"<<e.getComponentMask()<<std::endl;
+	*/
 
+	Entity& testEntity = Entity::create();
+	Position& position = testEntity.addComponent<Position>();
+	Sprite& sprite = testEntity.addComponent<Sprite>();
+	sprite.texture = "Assets/Shark.jpg";
+	
 	while(!quit)
 	{
 		update();
